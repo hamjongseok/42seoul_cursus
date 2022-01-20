@@ -6,22 +6,23 @@
 /*   By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/16 21:19:08 by jham              #+#    #+#             */
-/*   Updated: 2022/01/20 11:43:26 by hamjongseog      ###   ########.fr       */
+/*   Updated: 2022/01/20 13:59:54 by hamjongseog      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdio.h>
 #include <stdarg.h>
+#include "ft_printf.h"
 
-int ft_print_s(va_list ap) //abc를 가리키는 ap 리스트가 들어옴
+int ft_print_s(va_list *ap) //abc를 가리키는 ap 리스트가 들어옴
 {
 	int c;
 	char *str;
 
 	c = 0;
-	str = (char *)va_arg(ap, char *); //char * 크기만큼 값을 가져오고 그 크기만큼 이동, str에 넣음
-	if (!*str)
+	str = (char *)va_arg(*ap, char *); //char * 크기만큼 값을 가져오고 그 크기만큼 이동, str에 넣음
+	if (!str)
 		return (write(1, "(null)", 6));
 	while (*str) //str abc 쭈욱 끝까지 널까지
 	{
@@ -48,7 +49,9 @@ int ft_setform(const char *fmt, va_list *ap) //s의 주소값 ,  ap 들어옴
 		return (1);
 	}
 	else if (*fmt == 's') //s라면  여기로들어옴
-		return (ft_print_s(*ap));
+		return (ft_print_s(ap));
+	else if (*fmt == 'd' || *fmt == 'i')
+		return (ft_print_di(ap));
 	return (0);
 }
 
@@ -66,6 +69,8 @@ int ft_printf(const char *fmt, ...) //%s , abc
 		if (*fmt == '%')
 		{
 			fmt++;
+			if (*fmt == 0)
+				break;
 			result += ft_setform(fmt, &ap);
 		}
 		else
@@ -84,9 +89,9 @@ int main(void)
 	int mine;
 	int real;
 
-	mine = ft_printf("%c%c%c\n", '\0', 'a', '\0');
-	printf("mine=%d\n", mine);
-	real = printf("%c%c%c\n", '\0', 'a', '\0');
+	mine = ft_printf("%d\n", 123);
+	printf("\nmine=%d\n", mine);
+	real = printf("%d", 123);
 	printf("real=%d\n", real);
 	return (0);
 }
