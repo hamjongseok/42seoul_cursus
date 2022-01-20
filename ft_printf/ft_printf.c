@@ -6,13 +6,14 @@
 /*   By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/16 21:19:08 by jham              #+#    #+#             */
-/*   Updated: 2022/01/20 13:59:54 by hamjongseog      ###   ########.fr       */
+/*   Updated: 2022/01/20 19:46:52 by hamjongseog      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdio.h>
 #include <stdarg.h>
+#include <limits.h>
 #include "ft_printf.h"
 
 int ft_print_s(va_list *ap) //abc를 가리키는 ap 리스트가 들어옴
@@ -43,8 +44,6 @@ int ft_setform(const char *fmt, va_list *ap) //s의 주소값 ,  ap 들어옴
 	if (*fmt == 'c')
 	{
 		c = va_arg(*ap, int);
-		if (c == '\0')
-			return (1);
 		write(1, &c, 1);
 		return (1);
 	}
@@ -82,16 +81,4 @@ int ft_printf(const char *fmt, ...) //%s , abc
 	}
 	va_end(ap);
 	return (result);
-}
-
-int main(void)
-{
-	int mine;
-	int real;
-
-	mine = ft_printf("%d\n", 123);
-	printf("\nmine=%d\n", mine);
-	real = printf("%d", 123);
-	printf("real=%d\n", real);
-	return (0);
 }
