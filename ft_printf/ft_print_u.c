@@ -1,10 +1,13 @@
 #include "ft_printf.h"
+#include <stdio.h>
 
-int ft_intsize_u(int n) //왜필요한거지 ? 123
+int ft_intsize_u(unsigned int n) //왜필요한거지 ? 123
 {
     int i;
 
     i = 0;
+    if (n == 0) //0이라면 쓰레기값이 들어오기때문에 밑에서 널 넣고 0도 넣어줘서 널이 들어가지않는다. 그렇기때문에 예외처리해줌
+        i = 1;
     while (n != 0) //123 을 10으로 계속 쪼갬
     {
         n /= 10; //12, 1   1, 2 ㅑ == 3
@@ -13,7 +16,7 @@ int ft_intsize_u(int n) //왜필요한거지 ? 123
     return (i);
 }
 
-char *ft_itoa_u(int n)
+char *ft_itoa_u(unsigned int n)
 {
     int len;
     unsigned int num;
@@ -34,7 +37,8 @@ char *ft_itoa_u(int n)
     }
     return (result);
 }
-int ft_print_u(va_list *ap)
+
+int ft_print_u(va_list *ap) //-1
 {
     int i;
     unsigned int nbr;
