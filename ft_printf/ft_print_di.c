@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_print_di.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/20 14:04:30 by hamjongseog       #+#    #+#             */
+/*   Updated: 2022/01/21 12:14:12 by hamjongseog      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 #include <stdio.h>
 
@@ -22,12 +34,16 @@ char *ft_itoa(int n)
     int len;
     long long num;
     char *result;
+    char *res;
 
     num = n;
     len = ft_intsize(n);                               // 3
     result = (char *)malloc(sizeof(char) * (len + 1)); //말록으로 할당해줌 3 개 + 널자리 1
     if (!result)
+    {
+        free(result);
         return (NULL);
+    }
     result[len--] = '\0'; //마지막에 널 할당
     if (num < 0)
     {
@@ -41,7 +57,9 @@ char *ft_itoa(int n)
         result[len--] = (num % 10) + '0';
         num /= 10;
     }
-    return (result);
+    res = result;
+    free(result);
+    return (res);
 }
 
 int ft_print_di(va_list *ap)
