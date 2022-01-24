@@ -1,31 +1,58 @@
 #include "ft_printf.h"
 #include <stdio.h>
 
+int ft_putchar(char c, int a)
+{
+    write(1, &c, 1);
+    a++;
+    return (a);
+}
+
+int ft_hex_per(int na, int cnt)
+{
+    if (na == 10)
+        ft_putchar('a', cnt);
+    else if (na == 11)
+        ft_putchar('b', cnt);
+    else if (na == 12)
+        ft_putchar('c', cnt);
+    else if (na == 13)
+        ft_putchar('d', cnt);
+    else if (na == 14)
+        ft_putchar('e', cnt);
+    else if (na == 15)
+        ft_putchar('f', cnt);
+    else
+        ft_putchar(na + '0', cnt);
+}
+
 int ft_hex_x(int a)
 {
-    char *str;
-    char b;
     int mok;
+    int na;
+    int cnt;
 
-    if (a < 9)
-    {
-        b = a + '0';
-        write(1, &b, 1);
-        return (1);
-    }
-    else
+    cnt = 0;
+    mok = a / 16;
+    if (mok > 16) //77
     {
         mok = a / 16;
+        ft_putchar(mok + '0', cnt);
     }
+    else
+        ft_putchar(mok + '0', cnt);
+    na = a % 16;
+    ft_hex_per(na, cnt);
+    return (cnt);
 }
 
 int ft_print_x(va_list *ap) //26을 가리키고 있는 ap가 들어왔다.
 {
-    int res;
+    unsigned int res;
+    int cnt;
 
-    res = va_arg(*ap, int); //26을 res가 받음,  이제 26을 16진수로 변환해야한다.
-    printf("res = %d\n", res);
-    res = ft_hex_x(res); //이해가안가는게 영어가 뒤에 붙는데 이것도 그냥 int로 처리하는건가 ?
+    res = va_arg(*ap, unsigned int); //정수를 받음
+    cnt = ft_hex_x(res);             //이해가안가는게 영어가 뒤에 붙는데 이것도 그냥 int로 처리하는건가 ?
 
-    return (res);
+    return (cnt);
 }
