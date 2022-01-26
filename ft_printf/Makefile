@@ -6,7 +6,7 @@
 #    By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/20 15:06:20 by hamjongseog       #+#    #+#              #
-#    Updated: 2022/01/21 14:10:03 by hamjongseog      ###   ########.fr        #
+#    Updated: 2022/01/26 11:49:54 by hamjongseog      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,10 @@ INCS = ./ft_printf.h
 
 SRCS =	./ft_printf.c \
 		ft_print_di.c \
-		ft_print_u.c 
+		ft_print_u.c  \
+		ft_print_x.c  \
+		ft_print_xx.c \
+		ft_print_p.c
 	
 
 OBJS =	${SRCS:.c=.o}

@@ -6,7 +6,7 @@
 /*   By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/16 21:19:08 by jham              #+#    #+#             */
-/*   Updated: 2022/01/20 19:46:52 by hamjongseog      ###   ########.fr       */
+/*   Updated: 2022/01/25 15:47:22 by hamjongseog      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int ft_print_s(va_list *ap) //abc를 가리키는 ap 리스트가 들어옴
 	return (c);
 }
 
-int ft_setform(const char *fmt, va_list *ap) //s의 주소값 ,  ap 들어옴
+int ft_setform(const char *fmt, va_list *ap) //x ,  26을 가르킴
 {
 	char c;
 
@@ -51,10 +51,18 @@ int ft_setform(const char *fmt, va_list *ap) //s의 주소값 ,  ap 들어옴
 		return (ft_print_s(ap));
 	else if (*fmt == 'd' || *fmt == 'i')
 		return (ft_print_di(ap));
+	else if (*fmt == 'u')
+		return (ft_print_u(ap));
+	else if (*fmt == 'x')
+		return (ft_print_x(ap));
+	else if (*fmt == 'X')
+		return (ft_print_xx(ap));
+	else if (*fmt == 'p')
+		return (ft_print_p(ap));
 	return (0);
 }
 
-int ft_printf(const char *fmt, ...) //%s , abc
+int ft_printf(const char *fmt, ...) //%x , 26
 {
 	va_list ap;
 	int result;

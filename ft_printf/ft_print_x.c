@@ -1,58 +1,82 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_print_x.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/25 15:40:19 by hamjongseog       #+#    #+#             */
+/*   Updated: 2022/01/26 12:52:15 by hamjongseog      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
-#include <stdio.h>
 
-int ft_putchar(char c, int a)
+static size_t pow_hex(int n)
 {
-    write(1, &c, 1);
-    a++;
-    return (a);
+    size_t ret;
+
+    ret = 1;
+    while (n--)
+        ret *= 16;
+    return (ret);
 }
 
-int ft_hex_per(int na, int cnt)
+static int hex_len(size_t res)
 {
-    if (na == 10)
-        ft_putchar('a', cnt);
-    else if (na == 11)
-        ft_putchar('b', cnt);
-    else if (na == 12)
-        ft_putchar('c', cnt);
-    else if (na == 13)
-        ft_putchar('d', cnt);
-    else if (na == 14)
-        ft_putchar('e', cnt);
-    else if (na == 15)
-        ft_putchar('f', cnt);
-    else
-        ft_putchar(na + '0', cnt);
-}
+    int i;
 
-int ft_hex_x(int a)
-{
-    int mok;
-    int na;
-    int cnt;
-
-    cnt = 0;
-    mok = a / 16;
-    if (mok > 16) //77
+    i = 1; //나머지 가 필요없다면 16보다 작다면 어차피 1이니간 , 그게아니라면 나머지를 구해줘야하니간 1
+    while (res > 15)
     {
-        mok = a / 16;
-        ft_putchar(mok + '0', cnt);
+        res /= 16;
+        i++;
     }
-    else
-        ft_putchar(mok + '0', cnt);
-    na = a % 16;
-    ft_hex_per(na, cnt);
-    return (cnt);
+    return (i);
+}
+
+char *ft_dectohex(size_t res)
+{
+    char *cp;
+    int len;
+    int i;
+    size_t pow; //%p 때문에 해줘야한다.
+    char *g_hex;
+
+    g_hex = "0123456789abcdef";
+    i = 0;
+    len = hex_len(res);
+    cp = (char *)malloc(sizeof(char) * (len + 1));
+    if (!cp)
+        return (0);
+    while (len > 0)
+    {
+        pow = pow_hex(len - 1); //256
+        cp[i] = g_hex[res / pow];
+        res %= pow;
+        len--;
+        i++;
+    }
+    cp[i] = '\0';
+    return (cp);
 }
 
 int ft_print_x(va_list *ap) //26을 가리키고 있는 ap가 들어왔다.
 {
+    char *cp;
     unsigned int res;
-    int cnt;
+    int i;
 
+    i = 0;
     res = va_arg(*ap, unsigned int); //정수를 받음
-    cnt = ft_hex_x(res);             //이해가안가는게 영어가 뒤에 붙는데 이것도 그냥 int로 처리하는건가 ?
-
-    return (cnt);
+    cp = ft_dectohex(res);           //문자열 cp에 정수를 16진수로 바꾼 문자열을 받는다.
+    if (!cp)
+        return (0);
+    while (cp[i])
+    {
+        write(1, cp + i, 1);
+        i++;
+    }
+    free(cp);
+    return (i);
 }
