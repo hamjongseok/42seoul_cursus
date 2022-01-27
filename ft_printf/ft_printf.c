@@ -6,7 +6,7 @@
 /*   By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/16 21:19:08 by jham              #+#    #+#             */
-/*   Updated: 2022/01/25 15:47:22 by hamjongseog      ###   ########.fr       */
+/*   Updated: 2022/01/27 13:58:55 by hamjongseog      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int ft_setform(const char *fmt, va_list *ap) //x ,  26을 가르킴
 	return (0);
 }
 
-int ft_printf(const char *fmt, ...) //%x , 26
+int ft_printf(const char *fmt, ...)
 {
 	va_list ap;
 	int result;
@@ -76,8 +76,6 @@ int ft_printf(const char *fmt, ...) //%x , 26
 		if (*fmt == '%')
 		{
 			fmt++;
-			if (*fmt == 0)
-				break;
 			result += ft_setform(fmt, &ap);
 		}
 		else
