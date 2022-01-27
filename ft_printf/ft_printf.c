@@ -6,13 +6,10 @@
 /*   By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/16 21:19:08 by jham              #+#    #+#             */
-/*   Updated: 2022/01/27 13:58:55 by hamjongseog      ###   ########.fr       */
+/*   Updated: 2022/01/27 14:02:51 by hamjongseog      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
-#include <stdarg.h>
 #include <limits.h>
 #include "ft_printf.h"
 
