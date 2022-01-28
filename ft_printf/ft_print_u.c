@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_print_u.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/28 15:09:34 by hamjongseog       #+#    #+#             */
+/*   Updated: 2022/01/28 15:09:39 by hamjongseog      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 int ft_intsize_u(unsigned int n)
@@ -5,11 +17,11 @@ int ft_intsize_u(unsigned int n)
     int i;
 
     i = 0;
-    if (n == 0) 
+    if (n == 0)
         i = 1;
-    while (n != 0) 
+    while (n != 0)
     {
-        n /= 10; 
+        n /= 10;
         i++;
     }
     return (i);
@@ -22,8 +34,8 @@ char *ft_itoa_u(unsigned int n)
     char *result;
 
     num = n;
-    len = ft_intsize_u(n);                          
-    result = (char *)malloc(sizeof(char) * (len + 1)); 
+    len = ft_intsize_u(n);
+    result = (char *)malloc(sizeof(char) * (len + 1));
     if (!result)
         return (NULL);
     result[len--] = '\0';
@@ -37,7 +49,7 @@ char *ft_itoa_u(unsigned int n)
     return (result);
 }
 
-int ft_print_u(va_list *ap) 
+int ft_print_u(va_list *ap)
 {
     int i;
     unsigned int nbr;
