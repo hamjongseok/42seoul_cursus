@@ -9,20 +9,18 @@
 /*   Updated: 2022/01/27 14:04:20 by hamjongseog      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <limits.h>
 #include "ft_printf.h"
 
-int ft_print_s(va_list *ap) //abc를 가리키는 ap 리스트가 들어옴
+int ft_print_s(va_list *ap)
 {
 	int c;
 	char *str;
 
 	c = 0;
-	str = (char *)va_arg(*ap, char *); //char * 크기만큼 값을 가져오고 그 크기만큼 이동, str에 넣음
+	str = (char *)va_arg(*ap, char *);
 	if (!str)
 		return (write(1, "(null)", 6));
-	while (*str) //str abc 쭈욱 끝까지 널까지
+	while (*str) 
 	{
 		write(1, str, 1);
 		str++;
@@ -31,7 +29,7 @@ int ft_print_s(va_list *ap) //abc를 가리키는 ap 리스트가 들어옴
 	return (c);
 }
 
-int ft_setform(const char *fmt, va_list *ap) //x ,  26을 가르킴
+int ft_setform(const char *fmt, va_list *ap)
 {
 	char c;
 
@@ -44,7 +42,7 @@ int ft_setform(const char *fmt, va_list *ap) //x ,  26을 가르킴
 		write(1, &c, 1);
 		return (1);
 	}
-	else if (*fmt == 's') //s라면  여기로들어옴
+	else if (*fmt == 's') 
 		return (ft_print_s(ap));
 	else if (*fmt == 'd' || *fmt == 'i')
 		return (ft_print_di(ap));
@@ -74,6 +72,8 @@ int ft_printf(const char *fmt, ...)
 		{
 			fmt++;
 			result += ft_setform(fmt, &ap);
+			if (result < 0)
+				return (-1);
 		}
 		else
 		{

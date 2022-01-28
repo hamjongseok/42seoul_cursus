@@ -11,19 +11,18 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
-int ft_intsize(int n) //왜필요한거지 ? 123
+int ft_intsize(int n) 
 {
     int i;
 
     if (n > 0)
-        i = 0; //아이거는 그거네 -가 있는지없는지 판별하려고
+        i = 0; 
     else
         i = 1;
-    while (n != 0) //123 을 10으로 계속 쪼갬
+    while (n != 0) 
     {
-        n /= 10; //12, 1   1, 2 ㅑ == 3
+        n /= 10;
         i++;
     }
     return (i);
@@ -36,11 +35,11 @@ char *ft_itoa(int n)
     char *result;
 
     num = n;
-    len = ft_intsize(n);                               // 3
-    result = (char *)malloc(sizeof(char) * (len + 1)); //말록으로 할당해줌 3 개 + 널자리 1
+    len = ft_intsize(n);
+    result = (char *)malloc(sizeof(char) * (len + 1)); 
     if (!result)
         return (NULL);
-    result[len--] = '\0'; //마지막에 널 할당
+    result[len--] = '\0'; 
     if (num < 0)
     {
         num *= -1;
@@ -65,6 +64,8 @@ int ft_print_di(va_list *ap)
     i = 0;
     nbr = va_arg(*ap, int);
     res = ft_itoa(nbr);
+	if (res == 0)
+		return (-1);
     while (res[i] != '\0')
     {
         write(1, &res[i], 1);

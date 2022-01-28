@@ -21,22 +21,22 @@ char ft_toupper(char c)
 
 int ft_print_xx(va_list *ap)
 {
-    char *cp;
+    char *str;
     char c;
-    unsigned int dec;
+    unsigned int res;
     int i;
 
     i = 0;
-    dec = (unsigned int)va_arg(*ap, unsigned int);
-    cp = ft_dectohex(dec);
-    if (!cp)
-        return (0);
-    while (cp[i])
+    res = (unsigned int)va_arg(*ap, unsigned int);
+    str = ft_restohex(res);
+    if (!str)
+        return (-1);
+    while (str[i])
     {
-        c = ft_toupper(cp[i]);
+        c = ft_toupper(str[i]);
         write(1, &c, 1);
         i++;
     }
-    free(cp);
+    free(str);
     return (i);
 }

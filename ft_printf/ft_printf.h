@@ -22,9 +22,9 @@ int ft_print_di(va_list *ap);
 int ft_print_u(va_list *ap);
 int ft_print_x(va_list *ap);
 int ft_print_xx(va_list *ap);
-char *ft_dectohex(size_t res);
-static int hex_len(size_t res);
-static size_t pow_hex(int n);
+char *ft_restohex(size_t res);
+int ft_hex_len(size_t res);
+size_t ft_pow_hex(int n);
 int ft_print_p(va_list *ap);
 
 #endif
