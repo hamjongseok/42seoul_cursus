@@ -1,11 +1,16 @@
-#ifdef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef PUSH_SWAP_H
+#define PUSH_SWAP_H
 
-# include <unistd.h>
-# include <stdlib.h>
+#include <unistd.h>
+#include <stdlib.h>
 
-typedef struct s_node
+typedef struct s_stack
 {
-	int	data;
-	struct s_node *next;
-}	t_node;
+	struct s_stack *prev;
+	int data;
+	struct s_stack *next;
+} t_stack;
+
+t_stack *ft_stack_init(void);
+
+#endif
