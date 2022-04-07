@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utility.c                                          :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/06 17:51:41 by hamjongseog       #+#    #+#             */
-/*   Updated: 2022/04/06 18:56:03 by hamjongseog      ###   ########.fr       */
+/*   Created: 2021/12/09 01:35:46 by hamjongseog       #+#    #+#             */
+/*   Updated: 2021/12/09 01:36:15 by hamjongseog      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "libft.h"
 
-int ft_error(int c)
+void	ft_bzero(void *ptr, size_t len)
 {
-    write(1, "Error\n", 6);
-    exit(c);
-    return (c);
+	ft_memset(ptr, 0, len);
 }

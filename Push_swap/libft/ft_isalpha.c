@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utility.c                                          :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/06 17:51:41 by hamjongseog       #+#    #+#             */
-/*   Updated: 2022/04/06 18:56:03 by hamjongseog      ###   ########.fr       */
+/*   Created: 2021/11/18 19:53:15 by jham              #+#    #+#             */
+/*   Updated: 2021/11/18 20:59:29 by hamjongseog      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-#include "../inc/push_swap.h"
-
-int ft_error(int c)
+int	ft_isalpha(int c)
 {
-    write(1, "Error\n", 6);
-    exit(c);
-    return (c);
+	if (c >= 65 && c <= 90)
+		return (1);
+	else if (c >= 97 && c <= 122)
+		return (1);
+	else
+		return (0);
 }

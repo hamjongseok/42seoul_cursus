@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utility.c                                          :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/06 17:51:41 by hamjongseog       #+#    #+#             */
-/*   Updated: 2022/04/06 18:56:03 by hamjongseog      ###   ########.fr       */
+/*   Created: 2021/11/18 22:18:12 by jham              #+#    #+#             */
+/*   Updated: 2021/11/18 22:28:07 by hamjongseog      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-#include "../inc/push_swap.h"
-
-int ft_error(int c)
+int	ft_isprint(int c)
 {
-    write(1, "Error\n", 6);
-    exit(c);
-    return (c);
+	if (c >= 32 && c <= 126)
+		return (1);
+	return (0);
 }

@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utility.c                                          :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/06 17:51:41 by hamjongseog       #+#    #+#             */
-/*   Updated: 2022/04/06 18:56:03 by hamjongseog      ###   ########.fr       */
+/*   Created: 2021/11/18 22:28:45 by jham              #+#    #+#             */
+/*   Updated: 2021/11/18 22:35:24 by hamjongseog      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-#include "../inc/push_swap.h"
-
-int ft_error(int c)
+size_t	ft_strlen(const char *str)
 {
-    write(1, "Error\n", 6);
-    exit(c);
-    return (c);
+	int		i;
+
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
 }

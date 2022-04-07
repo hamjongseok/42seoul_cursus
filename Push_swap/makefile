@@ -6,7 +6,7 @@
 #    By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/06 17:41:07 by hamjongseog       #+#    #+#              #
-#    Updated: 2022/04/06 17:43:52 by hamjongseog      ###   ########.fr        #
+#    Updated: 2022/04/06 18:43:10 by hamjongseog      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CFLAG = -Wall -Werror -Wextra
 RM = rm -f
 AR = ar 
 ARFLAGS = crs
-INCS = ./ft_printf.h
+INCS = inc/push_swap.h
 
 SRCS =	srcs/main.c \
 		

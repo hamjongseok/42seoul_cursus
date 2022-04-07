@@ -1,18 +1,42 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/06 19:46:05 by hamjongseog       #+#    #+#             */
+/*   Updated: 2022/04/07 17:46:57 by hamjongseog      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/push_swap.h"
+
+void print_stack(t_list *a)
+{
+	while (a != NULL)
+	{
+		printf("%d\n", a->data);
+		a = a->next;
+	}
+}
 
 int main(int argc, char *argv[])
 {
-	t_stack *a;
-	t_stack *b;
-	long long *int_arr;
-	int arr_size;
+	t_stack *box;
+	t_list *tmp;
+	int num;
 
-	if (argc < 2)
-		exit(0);
-	a = ft_stack_init(); //a, b를 초기화
-	b = ft_stack_init();
+	box = malloc(sizeof(t_stack));
+	for (int i = 1; argv[i]; i++)
+	{
+		num = 0;
+		num = atoi(argv[i]);
+		tmp = ft_lstnew((void *)num);
+		ft_lstadd_back(&(box->a), tmp);
+	}
 
-	arr_size = ft_input_num(argv, argc);
+	print_stack(box->a);
 
 	return (0);
 }
