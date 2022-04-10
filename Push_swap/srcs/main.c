@@ -6,37 +6,24 @@
 /*   By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 19:46:05 by hamjongseog       #+#    #+#             */
-/*   Updated: 2022/04/07 17:46:57 by hamjongseog      ###   ########.fr       */
+/*   Updated: 2022/04/08 17:51:32 by hamjongseog      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
-
-void print_stack(t_list *a)
-{
-	while (a != NULL)
-	{
-		printf("%d\n", a->data);
-		a = a->next;
-	}
-}
-
+#include <stdio.h>
 int main(int argc, char *argv[])
 {
-	t_stack *box;
-	t_list *tmp;
-	int num;
+	t_stack *a;
+	t_stack *b;			//stack a와 b를 만들어줌
+	long long *int_arr; // 아직뭐하는 애인지 모르겠음, 아마도 int범위 내의 값을 받아주기위해? 음수를 받아주기위해쓰는건가?
+	int arr_size;		// 이것도 모름, array의 크기 즉 배열의 크기란건데
 
-	box = malloc(sizeof(t_stack));
-	for (int i = 1; argv[i]; i++)
-	{
-		num = 0;
-		num = atoi(argv[i]);
-		tmp = ft_lstnew((void *)num);
-		ft_lstadd_back(&(box->a), tmp);
-	}
-
-	print_stack(box->a);
+	if (argc < 2) // argc가 1일때는 필요없기때문에 예외처리로 끝내준다
+		exit(0);
+	a = ft_stack_init();				 //초기화 해주는 함수 초기화를 해준다.
+	b = ft_stack_init();				 // 앞뒤 널을 가리키고 data가 0인 노드 a,b 2개 생김
+	arr_size = ft_input_num(argv, argc); //숫자 입력받는 함수? 인것같다
 
 	return (0);
 }

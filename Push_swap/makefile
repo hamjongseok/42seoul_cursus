@@ -6,7 +6,7 @@
 #    By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/06 17:41:07 by hamjongseog       #+#    #+#              #
-#    Updated: 2022/04/06 18:43:10 by hamjongseog      ###   ########.fr        #
+#    Updated: 2022/04/08 15:05:26 by hamjongseog      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,8 +21,11 @@ ARFLAGS = crs
 INCS = inc/push_swap.h
 
 SRCS =	srcs/main.c \
+		srcs/ft_input.c \
+		srcs/ft_init.c \
+		srcs/utility.c \
+		srcs/ft_split.c
 		
-
 OBJS =	${SRCS:.c=.o}
 
 all : ${NAME}
@@ -39,6 +42,6 @@ fclean:	clean
 re:	fclean all
 
 $(NAME): ${OBJS}
-		${AR} ${ARFLAGS} $@ $^
+		   $(CC) $(CFLAGS) $(SRCS) -o $(NAME)
 
 .PHONY : all clean fclean re
