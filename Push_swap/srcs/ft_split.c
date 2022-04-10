@@ -6,7 +6,7 @@
 /*   By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 00:33:01 by hamjongseog       #+#    #+#             */
-/*   Updated: 2022/04/09 00:21:43 by hamjongseog      ###   ########.fr       */
+/*   Updated: 2022/04/10 20:40:43 by hamjongseog      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,11 +83,15 @@ char **ft_split(char const *s, char c) //av[i], ' ' 이 들어온다
         while (*s && *s == c) //공백이면 넘겨준다 문자나올때까지
             s++;
         lenword = ft_lenword(s, c);           //문자의 길이 ex 123, 12 (값은 3, 2)
-        arr[aidx] = ft_fd_strdup(s, lenword); //"1 2 3"이면 1을 arr[i]에다가 넣어서 만듬
-        if (!arr[aidx])
+        arr[aidx] = ft_fd_strdup(s, lenword); //"1 2 3"이면 1을 arr[i]에다가 넣어서 만듬, 복사해주는함수
+        if (!arr[aidx])                       //오류가 생기면
         {
-            ft_free(arr, aidx - 1);
+            ft_free(arr, aidx - 1); //ft_free함수 사용하여 free해준다.
             return (0);
         }
+        aidx++;
+        s += lenword; //위에서 lenword만큼 넘겨줬기때문에 다음 문자 부터 시작을해야한다.
     }
+    arr[cntword] = 0;
+    return (arr);
 }
