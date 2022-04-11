@@ -6,7 +6,7 @@
 /*   By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 19:46:05 by hamjongseog       #+#    #+#             */
-/*   Updated: 2022/04/08 17:51:32 by hamjongseog      ###   ########.fr       */
+/*   Updated: 2022/04/11 19:12:35 by hamjongseog      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,9 @@ int main(int argc, char *argv[])
 		exit(0);
 	a = ft_stack_init();				 //초기화 해주는 함수 초기화를 해준다.
 	b = ft_stack_init();				 // 앞뒤 널을 가리키고 data가 0인 노드 a,b 2개 생김
-	arr_size = ft_input_num(argv, argc); //숫자 입력받는 함수? 인것같다
-
+	arr_size = ft_input_num(argv, argc); // 총 노드의 개수라고 해야하나.
+	int_arr = (long long *)malloc(sizeof(long long) * arr_size);
+	if (!int_arr)
+		ft_error(0);
 	return (0);
 }

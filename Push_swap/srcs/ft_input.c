@@ -6,7 +6,7 @@
 /*   By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 00:26:05 by hamjongseog       #+#    #+#             */
-/*   Updated: 2022/04/10 20:46:47 by hamjongseog      ###   ########.fr       */
+/*   Updated: 2022/04/11 19:08:22 by hamjongseog      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,13 @@ int ft_input_num(char **av, int ac) //왜 int형이지? 매개변수로 인자�
 
     size = 0;
     i = 0;
-    while (i < ac) //실행부터 들어가는건데..?
+    while (i < ac) //실행부터 들어가는것 고쳐야겠다.
     {
         split_arr = ft_split(av[i], ' ');
-        split_size = ft_split_arr_size(split_arr); // why
+        split_size = ft_split_arr_size(split_arr); //split_Arr size를 구함
         size += split_size;
-        free_str(split_arr); //음..
+        free_str(split_arr); //다음 을 위해 free해줌
         i++;
     }
-    return (size - 1); //이거 여기까지 해야지
+    return (size - 1); //av[0], 실행 명령어가 들어가기때문에 -1 해준다
 }
