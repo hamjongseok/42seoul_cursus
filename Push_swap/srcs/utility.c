@@ -6,7 +6,7 @@
 /*   By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 17:51:41 by hamjongseog       #+#    #+#             */
-/*   Updated: 2022/04/11 21:54:38 by hamjongseog      ###   ########.fr       */
+/*   Updated: 2022/04/12 16:00:55 by hamjongseog      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@ int ft_error(int c)
     write(1, "Error\n", 6);
     exit(c);
     return (c);
+}
+
+int ft_isalpha(char c)
+{
+    return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
 }
 
 int ft_isspace(char c)

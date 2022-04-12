@@ -6,7 +6,7 @@
 /*   By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 19:46:05 by hamjongseog       #+#    #+#             */
-/*   Updated: 2022/04/11 19:24:28 by hamjongseog      ###   ########.fr       */
+/*   Updated: 2022/04/12 16:28:31 by hamjongseog      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,7 @@ int main(int argc, char *argv[])
 	if (!int_arr)
 		ft_error(0);
 	ft_init_arr(argv, int_arr, argc, arr_size);
+	if (!(ft_check_arr(int_arr, arr_size)))
+		ft_error(0);
 	return (0);
 }

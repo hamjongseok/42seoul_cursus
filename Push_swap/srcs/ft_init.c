@@ -6,7 +6,7 @@
 /*   By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 17:54:14 by hamjongseog       #+#    #+#             */
-/*   Updated: 2022/04/11 20:24:31 by hamjongseog      ###   ########.fr       */
+/*   Updated: 2022/04/12 16:11:07 by hamjongseog      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void ft_arr_put(char **split_arr, long long *int_arr, int *jdx, int arr_size)
         while (split_idx < split_size)
         {
             tmp = ft_atoll(split_arr[split_idx++]);
-            int_arr[arr_size - 1 - *jdx] = tmp;
+            int_arr[arr_size - 1 - *jdx] = tmp; //int_arr의 마지막 인덱스부터 넣는다
             *jdx += 1;
         }
     }
@@ -61,6 +61,8 @@ void ft_init_arr(char **av, long long *int_arr, int ac, int arr_size)
     while (idx < ac)
     {
         split_arr = ft_split(av[idx], ' ');
-        ft_arr_put(split_arr, int_arr, &jdx, arr_size);
+        ft_arr_put(split_arr, int_arr, &jdx, arr_size); //문자를 숫자로 바꾸고 longlong 포인터인 int_arr에다가 마지막부터 하나씩 넣는다.
+        free_str(split_arr);
+        idx++;
     }
 }
