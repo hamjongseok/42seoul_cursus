@@ -6,7 +6,7 @@
 /*   By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 00:26:05 by hamjongseog       #+#    #+#             */
-/*   Updated: 2022/04/12 16:17:06 by hamjongseog      ###   ########.fr       */
+/*   Updated: 2022/04/13 15:37:36 by hamjongseog      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void free_str(char **str)
     free(str);
 }
 
-int ft_input_num(char **av, int ac) //왜 int형이지? 매개변수로 인자값이 들어옴
+int ft_input_num(char **av, int ac) //
 {
     int size;
     int i; //인덱스

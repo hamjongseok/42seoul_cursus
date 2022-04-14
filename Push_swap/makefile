@@ -6,7 +6,7 @@
 #    By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/06 17:41:07 by hamjongseog       #+#    #+#              #
-#    Updated: 2022/04/08 15:05:26 by hamjongseog      ###   ########.fr        #
+#    Updated: 2022/04/13 15:40:52 by hamjongseog      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ SRCS =	srcs/main.c \
 		srcs/ft_input.c \
 		srcs/ft_init.c \
 		srcs/utility.c \
-		srcs/ft_split.c
+		srcs/ft_split.c \
+		srcs/utility_arr.c
 		
 OBJS =	${SRCS:.c=.o}
 

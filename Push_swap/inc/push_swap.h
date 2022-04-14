@@ -16,5 +16,10 @@ int ft_input_num(char **av, int ac);
 t_stack *ft_stack_init(void);
 char **ft_split(char const *s, char c);
 int ft_error(int c);
+void ft_init_arr(char **av, long long *int_arr, int ac, int arr_size);
+int ft_check_arr(long long *arr, int arr_size);
+long long ft_atoll(char *str);
+void free_str(char **str);
+int ft_split_arr_size(char **split_arr);
 
 #endif
