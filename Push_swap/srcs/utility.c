@@ -6,7 +6,7 @@
 /*   By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 17:51:41 by hamjongseog       #+#    #+#             */
-/*   Updated: 2022/04/14 13:16:53 by hamjongseog      ###   ########.fr       */
+/*   Updated: 2022/05/09 13:56:55 by hamjongseog      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ long long ft_atoll(char *str)
         result = result * 10 + (*str - '0');
         str++;
     }
-    if (ft_isalpha(*str))
+    if (ft_isalpha(*str)) //문자가있으면 에러처리
         ft_error(0);
     return (sign * result);
 }

@@ -6,7 +6,7 @@
 /*   By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 00:26:05 by hamjongseog       #+#    #+#             */
-/*   Updated: 2022/04/13 15:37:36 by hamjongseog      ###   ########.fr       */
+/*   Updated: 2022/05/09 13:29:30 by hamjongseog      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int ft_input_num(char **av, int ac) //
     int size;
     int i; //인덱스
     int split_size;
-    char **split_arr; //자를거 다자르고 남은 최종 문자열인건가
+    char **split_arr; //"1 23 56" 이면 "1" "23" "56"이렇게 담기 위한
 
     size = 0;
     i = 0;
