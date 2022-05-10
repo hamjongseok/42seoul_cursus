@@ -21,5 +21,6 @@ int ft_check_arr(long long *arr, int arr_size);
 long long ft_atoll(char *str);
 void free_str(char **str);
 int ft_split_arr_size(char **split_arr);
+void ft_make_list(t_stack *head, long long *arr, int cnt);
 
 #endif

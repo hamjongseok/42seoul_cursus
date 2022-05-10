@@ -6,12 +6,20 @@
 /*   By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 19:46:05 by hamjongseog       #+#    #+#             */
-/*   Updated: 2022/05/09 14:28:20 by hamjongseog      ###   ########.fr       */
+/*   Updated: 2022/05/10 22:59:18 by hamjongseog      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 #include <stdio.h>
+
+void ft_check_factor(t_stack *a, t_stack *b, int num)
+{
+	if (num == 1)
+		return;
+	else if (num == 2) //array size == num
+		ft_factor_two(a);
+}
 
 void ft_check_sort(long long *int_arr, int arr_size)
 {
@@ -52,7 +60,10 @@ int main(int argc, char *argv[])
 		printf("int_arr[%d]= %lld\n", i, int_arr[i]);
 		i++;
 	}
-	ft_check_sort(int_arr, arr_size);	//정렬확인, 정렬되어있으면 종료, 아니면 다음 진행
-	ft_make_list(a, int_arr, arr_size); //스택 a활용
+	ft_check_sort(int_arr, arr_size); //정렬확인, 정렬되어있으면 종료, 아니면 다음 진행
+	printf("end");
+	ft_make_list(a, int_arr, arr_size); //스택 a만들어줌 push?
+	ft_check_factor(a, b, arr_size);	//factor == 인수
+
 	return (0);
 }
