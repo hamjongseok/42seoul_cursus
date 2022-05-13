@@ -3,14 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   ft_list.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+        */
+/*   By: jham <jham@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 14:29:24 by hamjongseog       #+#    #+#             */
-/*   Updated: 2022/05/10 22:51:37 by hamjongseog      ###   ########.fr       */
+/*   Updated: 2022/05/11 13:42:31 by jham             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
+
+t_stack *ft_find_last_lst(t_stack *stack) //a를 받음 
+{
+    if(!stack) ///예외처리  
+        return (0);
+    while (stack->next) //널나올때까지 놀린다 
+    {
+        stack = stack->next;
+    }
+    return (stack);
+}
 
 void ft_make_list(t_stack *head, long long *arr, int cnt) //a가 헤드임
 {

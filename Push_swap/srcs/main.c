@@ -3,22 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+        */
+/*   By: jham <jham@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 19:46:05 by hamjongseog       #+#    #+#             */
-/*   Updated: 2022/05/10 22:59:18 by hamjongseog      ###   ########.fr       */
+/*   Updated: 2022/05/11 11:45:21 by jham             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
-#include <stdio.h>
 
 void ft_check_factor(t_stack *a, t_stack *b, int num)
 {
-	if (num == 1)
+	if (num == 1) // 이거1 예외처리 있는거같은데 ? 
 		return;
-	else if (num == 2) //array size == num
+	else if (num == 2) //array size == num 2일때 들어와서 스왑해줌 
 		ft_factor_two(a);
+	else if (num > 2 && num < 6) //3 ~ 5까지는 왜 이걸할까? 
+		ft_factor_five(a, b);
 }
 
 void ft_check_sort(long long *int_arr, int arr_size)
@@ -47,7 +48,6 @@ int main(int argc, char *argv[])
 	a = ft_stack_init();				 //초기화 해주는 함수 초기화를 해준다.
 	b = ft_stack_init();				 // 앞뒤 널을 가리키고 data가 0인 노드 a,b 2개 생김
 	arr_size = ft_input_num(argv, argc); // 총 짜른 숫자의 개수
-	printf("arr_size = %d\n", arr_size);
 	int_arr = (long long *)malloc(sizeof(long long) * arr_size); //long long 포인터형 int arr에 말록으로할당
 	if (!int_arr)
 		ft_error(0);
@@ -55,14 +55,14 @@ int main(int argc, char *argv[])
 	if (!(ft_check_arr(int_arr, arr_size)))		//인트범위검사, 숫자 중복검사
 		ft_error(0);
 	int i = 0;
-	while (i < 4)
+	/* while (i < 4)
 	{
 		printf("int_arr[%d]= %lld\n", i, int_arr[i]);
 		i++;
 	}
+	*/
 	ft_check_sort(int_arr, arr_size); //정렬확인, 정렬되어있으면 종료, 아니면 다음 진행
-	printf("end");
-	ft_make_list(a, int_arr, arr_size); //스택 a만들어줌 push?
+	ft_make_list(a, int_arr, arr_size); //노드를 연결해서 스택 a만들어줌 push
 	ft_check_factor(a, b, arr_size);	//factor == 인수
 
 	return (0);

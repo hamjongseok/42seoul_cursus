@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort_two.c                                      :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jham <jham@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/10 23:01:27 by hamjongseog       #+#    #+#             */
-/*   Updated: 2022/05/11 11:23:42 by jham             ###   ########.fr       */
+/*   Created: 2022/05/11 10:47:47 by jham              #+#    #+#             */
+/*   Updated: 2022/05/11 11:15:59 by jham             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void ft_factor_two(t_stack *head) //원소값이 두개일때 들어오는 함수 
+void sa(t_stack *a) //a스택의 상위 두 원소의 위치를 swap
 {
-    t_stack *first;
-    t_stack *second;
-    //의문인게 정렬이 안되있으면 들어오는거아닌가 왜 if로 구분하는거지 ?  
-    first = head->next;
-    second = head->next->next;
-    if (first->data > second->data)
-            sa(head);
-    else    
-        return;
+    int data;
+    int size;
+
+    size = ft_size(a); //a의 길이를 구한다. 근데 굳이 왜구하지 ? 
+    if (size < 2)
+        return ;
+    data = a->next->next->data; // 그냥 swap해주는것 
+    a->next->next->data = a->next->data;
+    a->next->data = data;
+    write(1, "sa\n", 3);
 }

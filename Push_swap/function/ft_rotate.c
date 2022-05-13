@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort_two.c                                      :+:      :+:    :+:   */
+/*   ft_rotate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jham <jham@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/10 23:01:27 by hamjongseog       #+#    #+#             */
-/*   Updated: 2022/05/11 11:23:42 by jham             ###   ########.fr       */
+/*   Created: 2022/05/11 12:19:32 by jham              #+#    #+#             */
+/*   Updated: 2022/05/11 13:28:30 by jham             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void ft_factor_two(t_stack *head) //원소값이 두개일때 들어오는 함수 
+void ra(t_stack *a, int *ra_cnt) //매개변수의미? a의 모든 원소를 1씩 위로 이동, 첫번째원소는 마지막원소가 된다.
 {
-    t_stack *first;
-    t_stack *second;
-    //의문인게 정렬이 안되있으면 들어오는거아닌가 왜 if로 구분하는거지 ?  
-    first = head->next;
-    second = head->next->next;
-    if (first->data > second->data)
-            sa(head);
-    else    
-        return;
+    int adata;
+
+    if (a->next == NULL) //예외처리 
+        return ;
+    adata = a->next->data; //7이들어감 첫번째 노드의 값 , 왜지 ? 
+    ft_pop(a); //pop조짐 
+    ft_push_last(a, adata);
+    *ra_cnt += 1;
+    write(1, "ra\n", 3);
 }

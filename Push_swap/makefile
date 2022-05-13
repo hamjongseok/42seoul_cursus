@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+         #
+#    By: jham <jham@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/06 17:41:07 by hamjongseog       #+#    #+#              #
-#    Updated: 2022/04/13 15:40:52 by hamjongseog      ###   ########.fr        #
+#    Updated: 2022/05/11 11:32:12 by jham             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,11 @@ SRCS =	srcs/main.c \
 		srcs/ft_init.c \
 		srcs/utility.c \
 		srcs/ft_split.c \
-		srcs/utility_arr.c
+		srcs/utility_arr.c \
+		srcs/ft_stack.c \
+		srcs/ft_list.c \
+		function/ft_swap.c \
+		sort/ft_sort_two.c
 		
 OBJS =	${SRCS:.c=.o}
 
