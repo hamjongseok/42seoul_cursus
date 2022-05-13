@@ -6,7 +6,7 @@
 /*   By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 11:46:08 by jham              #+#    #+#             */
-/*   Updated: 2022/05/13 14:56:12 by hamjongseog      ###   ########.fr       */
+/*   Updated: 2022/05/13 19:43:58 by hamjongseog      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void ft_factor_five(t_stack *a, t_stack *b)
         if (a->next->data == max_value ||
             a->next->data == min_value)
         {
-            pb(a, b, &idx);
+            // pb(a, b, &idx);
             pb_cnt += 1;
         }
         else

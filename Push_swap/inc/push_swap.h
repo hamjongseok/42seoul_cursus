@@ -24,17 +24,26 @@ int ft_split_arr_size(char **split_arr);
 void ft_make_list(t_stack *head, long long *arr, int cnt);
 void ft_factor_two(t_stack *head);
 int ft_size(t_stack *head);
+t_stack *ft_find_last_lst(t_stack *stack);
+void ft_pop(t_stack *head);
+void ft_push_last(t_stack *head, int data);
 
 /*
 sort/ft_sort_five.c
 */
 void ft_factor_five(t_stack *a, t_stack *b);
-
+int ft_find_min(t_stack *head);
+int ft_find_max(t_stack *head);
+void ft_factor_three(t_stack *head);
 
 /*
 function/ft_swap.c
 */
 void sa(t_stack *a);
 
+/*
+fuction/ft_rotate.c
+*/
+void ra(t_stack *a, int *ra_cnt);
 
 #endif
