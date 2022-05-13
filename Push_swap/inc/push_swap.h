@@ -27,6 +27,8 @@ int ft_size(t_stack *head);
 t_stack *ft_find_last_lst(t_stack *stack);
 void ft_pop(t_stack *head);
 void ft_push_last(t_stack *head, int data);
+void ft_push_first(t_stack *head, int data);
+void ft_pop_last(t_stack *head);
 
 /*
 sort/ft_sort_five.c
@@ -45,5 +47,9 @@ void sa(t_stack *a);
 fuction/ft_rotate.c
 */
 void ra(t_stack *a, int *ra_cnt);
+/*
+function/ft_rrotate.c
+*/
+void rra(t_stack *a);
 
 #endif

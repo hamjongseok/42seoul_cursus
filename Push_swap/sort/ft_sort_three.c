@@ -6,7 +6,7 @@
 /*   By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 14:56:32 by hamjongseog       #+#    #+#             */
-/*   Updated: 2022/05/13 20:49:47 by hamjongseog      ###   ########.fr       */
+/*   Updated: 2022/05/13 20:55:51 by hamjongseog      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ void ft_factor_three(t_stack *head) //인수가 세개일때 여기로들어옴
     {
         sa(head);
     }
-    //if (top->next->data == max_value)
-    //  rra(head);
+    if (top->next->data == max_value)
+        rra(head);
     if (top->data == max_value && top->next->data == min_value) //당연한것
         ra(head, &idx);
 }

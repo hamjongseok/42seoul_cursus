@@ -6,7 +6,7 @@
 #    By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/06 17:41:07 by hamjongseog       #+#    #+#              #
-#    Updated: 2022/05/13 20:43:05 by hamjongseog      ###   ########.fr        #
+#    Updated: 2022/05/13 21:05:48 by hamjongseog      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ SRCS =	srcs/main.c \
 		srcs/ft_list.c \
 		function/ft_swap.c \
 		function/ft_rotate.c \
+		function/ft_rrotate.c \
 		sort/ft_sort_two.c \
 		sort/ft_sort_five.c \
 		sort/ft_sort_three.c \
