@@ -6,7 +6,7 @@
 /*   By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 10:55:26 by jham              #+#    #+#             */
-/*   Updated: 2022/05/13 21:27:34 by hamjongseog      ###   ########.fr       */
+/*   Updated: 2022/05/14 00:41:13 by hamjongseog      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void ft_push_last(t_stack *head, int data) //a 노드와 7을 가져옴
     if (!new_node)                                 //예외처리
         ft_error(0);
     tmp_last = ft_find_last_lst(head); // 마지막 노드
-    if (head->next == NULL)
+    if (head->next == NULL)            //  b노드가여기들어오네
     {
         new_node->data = data;
         new_node->next = NULL;

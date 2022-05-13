@@ -29,6 +29,7 @@ void ft_pop(t_stack *head);
 void ft_push_last(t_stack *head, int data);
 void ft_push_first(t_stack *head, int data);
 void ft_pop_last(t_stack *head);
+void ft_m_change(t_stack *a, t_stack *b, int pb_cnt, int max_v);
 
 /*
 sort/ft_sort_five.c
@@ -51,5 +52,10 @@ void ra(t_stack *a, int *ra_cnt);
 function/ft_rrotate.c
 */
 void rra(t_stack *a);
+/*
+function/ft_push.c
+*/
+void pb(t_stack *a, t_stack *b, int *pb_cnt);
+void pa(t_stack *a, t_stack *b, int *pa_cnt);
 
 #endif
