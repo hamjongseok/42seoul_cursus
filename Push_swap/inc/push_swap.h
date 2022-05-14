@@ -30,6 +30,10 @@ void ft_push_last(t_stack *head, int data);
 void ft_push_first(t_stack *head, int data);
 void ft_pop_last(t_stack *head);
 void ft_m_change(t_stack *a, t_stack *b, int pb_cnt, int max_v);
+void ft_a_b(t_stack *a, t_stack *b, int cnt);
+int ft_find_pivot(t_stack *head, int cnt);
+void ft_sort_arr(long long *arr, int cnt);
+void ft_b_a(t_stack *a, t_stack *b, int cnt);
 
 /*
 sort/ft_sort_five.c
@@ -38,6 +42,7 @@ void ft_factor_five(t_stack *a, t_stack *b);
 int ft_find_min(t_stack *head);
 int ft_find_max(t_stack *head);
 void ft_factor_three(t_stack *head);
+void ft_swap(long long *arr, int idx, int l_idx);
 
 /*
 function/ft_swap.c
@@ -48,10 +53,14 @@ void sa(t_stack *a);
 fuction/ft_rotate.c
 */
 void ra(t_stack *a, int *ra_cnt);
+void rb(t_stack *b, int *rb_cnt);
+
 /*
 function/ft_rrotate.c
 */
 void rra(t_stack *a);
+void rrb(t_stack *b);
+
 /*
 function/ft_push.c
 */

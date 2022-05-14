@@ -6,7 +6,7 @@
 /*   By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 11:46:08 by jham              #+#    #+#             */
-/*   Updated: 2022/05/14 00:58:56 by hamjongseog      ###   ########.fr       */
+/*   Updated: 2022/05/14 13:38:34 by hamjongseog      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void ft_m_change(t_stack *a, t_stack *b, int pb_cnt, int max_v)
     idx = 0; //idx 가 대체왜필요한거야 ?
     while (pb_cnt > 0)
     {
-        if (b->next->data == max_v)
+        if (b->next->data == max_v) //가장높은값이라면 넘기고 ra로 정렬
         {
             pa(a, b, &idx);
             ra(a, &idx);
@@ -41,7 +41,7 @@ void ft_factor_five(t_stack *a, t_stack *b)
     max_value = ft_find_max(a); //8
     min_value = ft_find_min(a); //3
     pb_cnt = 0;
-    while (ft_size(a) > 3) //4, 5가 들어온단건데 3은 어디서하지 ?
+    while (ft_size(a) > 3)
     {
         if (a->next->data == max_value ||
             a->next->data == min_value)

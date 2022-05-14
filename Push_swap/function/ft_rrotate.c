@@ -6,7 +6,7 @@
 /*   By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 20:57:29 by hamjongseog       #+#    #+#             */
-/*   Updated: 2022/05/14 00:31:37 by hamjongseog      ###   ########.fr       */
+/*   Updated: 2022/05/14 14:39:44 by hamjongseog      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,16 @@ void rra(t_stack *a)
     ft_pop_last(a);               // a - 2- 8 - 1에서 1이 끊기고 a - 2 - 8이 된다
     ft_push_first(a, adata);      //1을 먼저 저장시켜놨으니간 앞에다가 붙이기만하면된다. 넣으니간 push
     write(1, "rra\n", 4);
+}
+
+void rrb(t_stack *b)
+{
+    t_stack *last_b;
+    int bdata;
+
+    last_b = ft_find_last_lst(b);
+    bdata = last_b->data;
+    ft_pop_last(b);
+    ft_push_first(b, bdata);
+    write(1, "rrb\n", 4);
 }

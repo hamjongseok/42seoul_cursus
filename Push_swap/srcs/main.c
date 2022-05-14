@@ -6,7 +6,7 @@
 /*   By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 19:46:05 by hamjongseog       #+#    #+#             */
-/*   Updated: 2022/05/13 20:32:42 by hamjongseog      ###   ########.fr       */
+/*   Updated: 2022/05/14 14:32:14 by hamjongseog      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void ft_check_factor(t_stack *a, t_stack *b, int num)
 		ft_factor_two(a);
 	else if (num > 2 && num < 6) //3 ~ 5까지는 왜 이걸할까?
 		ft_factor_five(a, b);
+	else
+		ft_a_b(a, b, num);
 }
 
 void ft_check_sort(long long *int_arr, int arr_size)
@@ -55,11 +57,6 @@ int main(int argc, char *argv[])
 	if (!(ft_check_arr(int_arr, arr_size)))		//인트범위검사, 숫자 중복검사
 		ft_error(0);
 	int i = 0;
-	while (i < 3)
-	{
-		printf("int_arr[%d]= %lld\n", i, int_arr[i]);
-		i++;
-	}
 	ft_check_sort(int_arr, arr_size);	//정렬확인, 정렬되어있으면 종료, 아니면 다음 진행
 	ft_make_list(a, int_arr, arr_size); //노드를 연결해서 스택 a만들어줌 push
 	ft_check_factor(a, b, arr_size);	//factor == 인수

@@ -6,14 +6,14 @@
 #    By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/06 17:41:07 by hamjongseog       #+#    #+#              #
-#    Updated: 2022/05/14 00:45:44 by hamjongseog      ###   ########.fr        #
+#    Updated: 2022/05/14 14:29:48 by hamjongseog      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 NAME = push_swap
 
-CC = gcc
+CC = cc
 CFLAG = -Wall -Werror -Wextra
 RM = rm -f
 AR = ar 
@@ -34,7 +34,8 @@ SRCS =	srcs/main.c \
 		sort/ft_sort_two.c \
 		sort/ft_sort_five.c \
 		sort/ft_sort_three.c \
-		sort/ft_sort_utils.c
+		sort/ft_sort_utils.c \
+		sort/ft_sort_more.c
 		
 OBJS =	${SRCS:.c=.o}
 
