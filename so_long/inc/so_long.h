@@ -6,7 +6,7 @@
 /*   By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 18:47:01 by hamjongseog       #+#    #+#             */
-/*   Updated: 2022/06/07 18:33:03 by hamjongseog      ###   ########.fr       */
+/*   Updated: 2022/06/08 00:28:25 by hamjongseog      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,10 @@ images.c
 t_img img_init(void *mlx);
 void map_read(char *filename, t_game *game);
 void print_err(char *message);
+char *ft_strjoin_without_newline(char *s1, char *s2);
+char *ft_strdup_without_newline(char *s);
+int ft_strcpy_without_newline(char *dst, char *src, int len);
+void map_check(t_game *game);
+void map_check_param(t_game *game);
 
 #endif

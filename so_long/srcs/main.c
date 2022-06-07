@@ -6,7 +6,7 @@
 /*   By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 19:18:40 by hamjongseog       #+#    #+#             */
-/*   Updated: 2022/06/07 18:33:21 by hamjongseog      ###   ########.fr       */
+/*   Updated: 2022/06/08 00:11:00 by hamjongseog      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ void game_init(t_game *g, char *map)
 {
 	g->mlx = mlx_init();	   //디스플레이 연결 함수
 	g->img = img_init(g->mlx); //이미지 연결시키기
-	map_read(map, g);
+	map_read(map, g);		   //gnl을 이용해 맵을 한줄씩 읽고 최종적으로 str_line에 한줄로 쭉 만들어짐
+	map_check(g);
 }
 
 int main(int argc, char **argv)
