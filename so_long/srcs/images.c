@@ -6,7 +6,7 @@
 /*   By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 16:16:21 by hamjongseog       #+#    #+#             */
-/*   Updated: 2022/06/08 15:03:46 by hamjongseog      ###   ########.fr       */
+/*   Updated: 2022/06/08 15:14:37 by hamjongseog      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ t_img img_init(void *mlx)
     return (rt);
 }
 
-void put_img(t_game *g, int w, int h)
+void put_img(t_game *g, int w, int h) //다시한번 보기
 {
     if (g->str_line[h * g->wid + w] == '1')
     {
         mlx_put_image_to_window(g->mlx, g->win, g->img.wall, w * 64, h * 64);
     }
-    /*else if (g->str_line[h * g->wid + w] == 'C')
+    else if (g->str_line[h * g->wid + w] == 'C')
         mlx_put_image_to_window(g->mlx, g->win, g->img.chest, w * 64, h * 64);
     else if (g->str_line[h * g->wid + w] == 'P')
     {
@@ -51,7 +51,6 @@ void put_img(t_game *g, int w, int h)
     {
         mlx_put_image_to_window(g->mlx, g->win, g->img.land, w * 64, h * 64);
     }
-    */
 }
 
 void setting_img(t_game *game)

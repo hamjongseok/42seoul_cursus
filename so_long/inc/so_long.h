@@ -6,7 +6,7 @@
 /*   By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 18:47:01 by hamjongseog       #+#    #+#             */
-/*   Updated: 2022/06/08 00:40:19 by hamjongseog      ###   ########.fr       */
+/*   Updated: 2022/06/08 16:21:13 by hamjongseog      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,12 @@
 #include "../libft/libft.h"
 #include "../srcs/get_next_line.h"
 #include <fcntl.h>
+#include <stdio.h>
 
 #define X_EVENT_KEY_PRESS 2   // mlx_hook 함수의 두번째 인자
 #define X_EVENT_KEY_RELEASE 3 // x_event에 들어가는 값
 
+#define X_EVENT_KEY_EXIT 17
 #define KEY_W 13
 #define KEY_A 0
 #define KEY_S 1
@@ -63,5 +65,9 @@ int ft_strcpy_without_newline(char *dst, char *src, int len);
 void map_check(t_game *game);
 void map_check_param(t_game *game);
 void setting_img(t_game *game);
+void move_w(t_game *g);
+void move_a(t_game *g);
+void move_s(t_game *g);
+void move_d(t_game *g);
 
 #endif

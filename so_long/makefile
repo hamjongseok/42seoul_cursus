@@ -6,7 +6,7 @@
 #    By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/31 19:20:27 by hamjongseog       #+#    #+#              #
-#    Updated: 2022/06/08 12:13:57 by hamjongseog      ###   ########.fr        #
+#    Updated: 2022/06/08 16:03:32 by hamjongseog      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ SRCS_NAME = main.c \
 			get_next_line.c \
 			get_next_line_utils.c \
 			map.c \
-			utils.c
+			utils.c \
+			key.c
 
 SRCS_PATH = ./srcs
 SRCS = $(addprefix $(SRCS_PATH)/, $(SRCS_NAME))
