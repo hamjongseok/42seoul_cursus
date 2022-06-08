@@ -6,7 +6,7 @@
 /*   By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 19:18:40 by hamjongseog       #+#    #+#             */
-/*   Updated: 2022/06/08 00:11:00 by hamjongseog      ###   ########.fr       */
+/*   Updated: 2022/06/08 00:36:00 by hamjongseog      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ void game_init(t_game *g, char *map)
 	g->img = img_init(g->mlx); //이미지 연결시키기
 	map_read(map, g);		   //gnl을 이용해 맵을 한줄씩 읽고 최종적으로 str_line에 한줄로 쭉 만들어짐
 	map_check(g);
+	g->win = mlx_new_window(g->mlx, g->wid * 64, g->hei * 64, "so_long");
+	setting_img(g);
 }
 
 int main(int argc, char **argv)
@@ -36,5 +38,7 @@ int main(int argc, char **argv)
 		print_err("Map is missing.\n");
 	game = malloc(sizeof(t_game));
 	game_init(game, argv[1]);
+	mlx_loop(game->mlx);
+
 	return (0);
 }

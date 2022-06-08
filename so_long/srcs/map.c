@@ -6,7 +6,7 @@
 /*   By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 17:51:25 by hamjongseog       #+#    #+#             */
-/*   Updated: 2022/06/08 00:28:33 by hamjongseog      ###   ########.fr       */
+/*   Updated: 2022/06/08 12:38:42 by hamjongseog      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void map_read(char *filename, t_game *game)
     game->walk_cnt = 0;                               //움직인횟수 0으로 초기화
     game->wid = ft_strlen(line) - 1;                  //-해야 딱맞다
     game->str_line = ft_strdup_without_newline(line); //line, 즉 첫번째 줄의 문자하나씩 다 넣어줌
-    free(line);                                       //????????????이건진짜 모르겠노 물어보자
+    free(line); //댕글링 포인터 
     while (line)
     {
         game->hei++;

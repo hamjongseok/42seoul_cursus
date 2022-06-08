@@ -6,13 +6,13 @@
 #    By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/31 19:20:27 by hamjongseog       #+#    #+#              #
-#    Updated: 2022/06/07 19:16:05 by hamjongseog      ###   ########.fr        #
+#    Updated: 2022/06/08 12:13:57 by hamjongseog      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 
-CC = cc
+CC = cc -g
 CFLAG = -Wall -Werror -Wextra
 RM = rm -f
 AR = ar 
