@@ -6,7 +6,7 @@
 /*   By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 16:16:21 by hamjongseog       #+#    #+#             */
-/*   Updated: 2022/06/08 15:14:37 by hamjongseog      ###   ########.fr       */
+/*   Updated: 2022/06/09 19:45:39 by hamjongseog      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,38 +14,38 @@
 
 t_img img_init(void *mlx)
 {
-    t_img rt;
+    t_img gm;
     int wid;
     int hei;
 
-    rt.land = mlx_xpm_file_to_image(mlx, "./images/land.xpm", &wid, &hei);
-    rt.wall = mlx_xpm_file_to_image(mlx, "./images/wall.xpm", &wid, &hei);
-    rt.chara = mlx_xpm_file_to_image(mlx, "./images/chara.xpm", &wid, &hei);
-    rt.chest = mlx_xpm_file_to_image(mlx, "./images/chest.xpm", &wid, &hei);
-    rt.rune = mlx_xpm_file_to_image(mlx, "./images/rune.xpm", &wid, &hei);
-    rt.rune2 = mlx_xpm_file_to_image(mlx, "./images/rune2.xpm", &wid, &hei);
-    return (rt);
+    gm.land = mlx_xpm_file_to_image(mlx, "./images/land.xpm", &wid, &hei);
+    gm.wall = mlx_xpm_file_to_image(mlx, "./images/wall.xpm", &wid, &hei);
+    gm.player = mlx_xpm_file_to_image(mlx, "./images/player.xpm", &wid, &hei);
+    gm.item = mlx_xpm_file_to_image(mlx, "./images/item.xpm", &wid, &hei);
+    gm.exit = mlx_xpm_file_to_image(mlx, "./images/exit.xpm", &wid, &hei);
+    gm.o_exit = mlx_xpm_file_to_image(mlx, "./images/o_exit.xpm", &wid, &hei);
+    return (gm);
 }
 
-void put_img(t_game *g, int w, int h) //다시한번 보기
+void put_img(t_game *g, int w, int h)
 {
     if (g->str_line[h * g->wid + w] == '1')
     {
         mlx_put_image_to_window(g->mlx, g->win, g->img.wall, w * 64, h * 64);
     }
     else if (g->str_line[h * g->wid + w] == 'C')
-        mlx_put_image_to_window(g->mlx, g->win, g->img.chest, w * 64, h * 64);
+        mlx_put_image_to_window(g->mlx, g->win, g->img.item, w * 64, h * 64);
     else if (g->str_line[h * g->wid + w] == 'P')
     {
-        mlx_put_image_to_window(g->mlx, g->win, g->img.chara, w * 64, h * 64);
+        mlx_put_image_to_window(g->mlx, g->win, g->img.player, w * 64, h * 64);
     }
     else if (g->str_line[h * g->wid + w] == 'E' && g->all_col == g->col_cnt)
     {
-        mlx_put_image_to_window(g->mlx, g->win, g->img.rune2, w * 64, h * 64);
+        mlx_put_image_to_window(g->mlx, g->win, g->img.o_exit, w * 64, h * 64);
     }
     else if (g->str_line[h * g->wid + w] == 'E')
     {
-        mlx_put_image_to_window(g->mlx, g->win, g->img.rune, w * 64, h * 64);
+        mlx_put_image_to_window(g->mlx, g->win, g->img.exit, w * 64, h * 64);
     }
     else
     {
@@ -59,10 +59,10 @@ void setting_img(t_game *game)
     int wid;
 
     hei = 0;
-    while (hei < game->hei)
+    while (hei < game->hei) // 0< 5
     {
         wid = 0;
-        while (wid < game->wid)
+        while (wid < game->wid) // 0 < 13  하나씩 찍는거지
         {
             put_img(game, wid, hei);
             wid++;

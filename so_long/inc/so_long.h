@@ -6,7 +6,7 @@
 /*   By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 18:47:01 by hamjongseog       #+#    #+#             */
-/*   Updated: 2022/06/08 16:21:13 by hamjongseog      ###   ########.fr       */
+/*   Updated: 2022/06/09 20:03:22 by hamjongseog      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,11 @@
 
 typedef struct s_img
 {
-    void *chara;
-    void *chest;
+    void *player;
+    void *item;
     void *land;
-    void *rune;
-    void *rune2;
+    void *exit;
+    void *o_exit;
     void *wall;
 } t_img;
 
@@ -48,22 +48,32 @@ typedef struct s_game
     int wid;
     int hei;
     char *str_line;
-    int all_col;
-    int col_cnt;
-    int walk_cnt;
+    int c_total;
+    int c_cnt;
+    int walk;
 } t_game;
 
 /*
 images.c
 */
 t_img img_init(void *mlx);
-void map_read(char *filename, t_game *game);
-void print_err(char *message);
-char *ft_strjoin_without_newline(char *s1, char *s2);
-char *ft_strdup_without_newline(char *s);
-int ft_strcpy_without_newline(char *dst, char *src, int len);
+
+/*
+map
+*/
+void map_read_one(char *filename, t_game *game);
 void map_check(t_game *game);
 void map_check_param(t_game *game);
+
+void print_err(char *message);
+
+/*
+utils
+*/
+char *ft_strjoin_x_newline(char *s1, char *s2);
+char *ft_strdup_x_newline(char *s);
+int ft_strcpy_x_newline(char *dst, char *src, int len);
+
 void setting_img(t_game *game);
 void move_w(t_game *g);
 void move_a(t_game *g);
