@@ -6,15 +6,15 @@
 /*   By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 15:29:10 by hamjongseog       #+#    #+#             */
-/*   Updated: 2022/06/15 16:09:47 by hamjongseog      ###   ########.fr       */
+/*   Updated: 2022/06/16 14:58:06 by hamjongseog      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PIPEX_H
 #define PIPEX_H
-#include <stdio.h>
-#include <unistd.h>
-#include <fcntl.h>
+#include <stdio.h>  //perror
+#include <unistd.h> //
+#include <fcntl.h>  //open함수
 
 typedef struct s_arg
 {
