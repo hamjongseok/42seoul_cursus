@@ -6,7 +6,7 @@
 /*   By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 15:29:10 by hamjongseog       #+#    #+#             */
-/*   Updated: 2022/06/16 14:58:06 by hamjongseog      ###   ########.fr       */
+/*   Updated: 2022/06/17 21:45:08 by hamjongseog      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,13 @@
 #include <stdio.h>  //perror
 #include <unistd.h> //
 #include <fcntl.h>  //open함수
+#include <stdlib.h>
 
 typedef struct s_arg
 {
     int infile;
     int outfile;
-    char **path;
+    char **path; //경로가 : 기준으로 잘라져있다 2차원배열
     char *cmd1;
     char *cmd2;
     char *cmd_arg1;
@@ -30,5 +31,7 @@ typedef struct s_arg
 } t_arg;
 
 void exit_perror(char *message, int code);
+char *ft_strnstr(const char *h, const char *n, size_t len);
+int ft_strncmp(const char *s1, const char *s2, size_t n);
 
 #endif

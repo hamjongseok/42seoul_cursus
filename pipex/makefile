@@ -6,7 +6,7 @@
 #    By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/15 15:33:05 by hamjongseog       #+#    #+#              #
-#    Updated: 2022/06/15 15:33:32 by hamjongseog      ###   ########.fr        #
+#    Updated: 2022/06/17 19:58:37 by hamjongseog      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,9 @@ NAME		=	pipex
 
 D_UTILES	=	utiles/
 SRCS		=	pipex.c \
-				$(D_UTILES)exit_perror.c 
+				$(D_UTILES)exit_perror.c \
+				$(D_UTILES)strnstr.c \
+				$(D_UTILES)ft_strncmp.c
 
 OBJS		= $(SRCS:%.c=%.o)
 
