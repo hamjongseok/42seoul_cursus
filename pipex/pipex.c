@@ -6,13 +6,13 @@
 /*   By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 15:09:52 by hamjongseog       #+#    #+#             */
-/*   Updated: 2022/06/17 21:44:44 by hamjongseog      ###   ########.fr       */
+/*   Updated: 2022/06/18 17:07:50 by hamjongseog      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./pipex.h"
 
-int get_path_envp(char *envp[]) // 환경변수에서 PATH를 찾아서 PATH= 이후의 글자를 ft_split 으로 : 로 나눠서 저장한다.
+char **get_path_envp(char *envp[]) // 환경변수에서 PATH를 찾아서 PATH= 이후의 글자를 ft_split 으로 : 로 나눠서 저장한다.
 {
     char *path;
     int i;
@@ -22,7 +22,11 @@ int get_path_envp(char *envp[]) // 환경변수에서 PATH를 찾아서 PATH= �
     while (*envp && ft_strncmp("PATH=", *envp, 5))
         envp++;
     path = *envp + 5;
-    printf("%s", path);
+    while (path[i])
+    {
+        printf("%c", path[i]);
+        i++;
+    }
     return (ft_split(path, ':'));
 }
 
@@ -38,6 +42,13 @@ int arg_parse(t_arg *arg, char *av[], char *envp[])
     if (arg->outfile == -1)
         exit_perror("outfile", 1);
     arg->path = get_path_envp(envp);
+    int i = 0;
+    while (arg->path[i])
+    {
+        printf("PATH = ! %s\n", arg->path[i]);
+        i++;
+    }
+
     return (0);
 }
 
