@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/21 16:05:49 by hamjongseog       #+#    #+#             */
+/*   Updated: 2022/06/21 16:05:50 by hamjongseog      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../pipex.h"
 
-static size_t	get_word_cnt(char const *str, char c)
+static size_t get_word_cnt(char const *str, char c)
 {
-	size_t	count;
-	int		chker;
+	size_t count;
+	int chker;
 
 	count = 0;
 	chker = 1;
@@ -23,9 +35,9 @@ static size_t	get_word_cnt(char const *str, char c)
 	return (count);
 }
 
-static void	*is_free(char **str, int str_index)
+static void *is_free(char **str, int str_index)
 {
-	int	i;
+	int i;
 
 	i = 0;
 	while (i < str_index)
@@ -38,10 +50,10 @@ static void	*is_free(char **str, int str_index)
 	return (NULL);
 }
 
-static char	**set_worddup(char const *s, char c, char **mem)
+static char **set_worddup(char const *s, char c, char **mem)
 {
-	size_t	word_length;
-	int		i;
+	size_t word_length;
+	int i;
 
 	i = 0;
 	while (*s)
@@ -49,7 +61,7 @@ static char	**set_worddup(char const *s, char c, char **mem)
 		while (*s && *s == c)
 			s++;
 		if (!*s)
-			break ;
+			break;
 		word_length = 0;
 		while (s[word_length] && s[word_length] != c)
 			word_length++;
@@ -64,10 +76,10 @@ static char	**set_worddup(char const *s, char c, char **mem)
 	return (mem);
 }
 
-char	**ft_split(char const *s, char c)
+char **ft_split(char const *s, char c)
 {
-	size_t	word_count;
-	char	**new_mem;
+	size_t word_count;
+	char **new_mem;
 
 	new_mem = NULL;
 	if (!s)

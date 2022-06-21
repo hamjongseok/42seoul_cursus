@@ -6,7 +6,7 @@
 /*   By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 15:09:52 by hamjongseog       #+#    #+#             */
-/*   Updated: 2022/06/18 17:07:50 by hamjongseog      ###   ########.fr       */
+/*   Updated: 2022/06/21 16:05:54 by hamjongseog      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,39 @@ char **get_path_envp(char *envp[]) // 환경변수에서 PATH를 찾아서 PATH=
 
     while (*envp && ft_strncmp("PATH=", *envp, 5))
         envp++;
+    if (*envp == NULL)
+        exit_perror("PATH error", 127);
     path = *envp + 5;
+    return (ft_split(path, ':'));
+}
+
+char *get_cmd_argv(char **path, char *cmd)
+{
+    int i;
+    int fd;
+    char *path_cmd;
+    char *tmp;
+
+    fd = access(cmd, X_OK);
+    if (fd != -1)
+        return (cmd);
+    path_cmd = ft_strjoin("/", cmd);
+    i = 0;
     while (path[i])
     {
-        printf("%c", path[i]);
+        tmp = ft_strjoin(path[i], path_cmd);
+        fd = access(tmp, X_OK);
+        if (fd != -1)
+        {
+            free(path_cmd);
+            return (tmp);
+        }
+        close(fd);
+        free(tmp);
         i++;
     }
-    return (ft_split(path, ':'));
+    free(path_cmd);
+    return (NULL);
 }
 
 int arg_parse(t_arg *arg, char *av[], char *envp[])
@@ -41,15 +67,17 @@ int arg_parse(t_arg *arg, char *av[], char *envp[])
     arg->outfile = open(av[4], O_RDWR | O_CREAT | O_TRUNC, 0644);
     if (arg->outfile == -1)
         exit_perror("outfile", 1);
-    arg->path = get_path_envp(envp);
-    int i = 0;
-    while (arg->path[i])
+    arg->path = get_path_envp(envp); //path에다가 envp안의 경로를 넣어줌 cmd1 cmd2를 실행하기위해
+    arg->cmd_arg1 = ft_split(av[2], ' ');
+    arg->cmd_arg2 = ft_split(av[3], ' '); //공백을 기준으로 잘라서 넣어줌
+    arg->cmd1 = get_cmd_argv(arg->path, arg->cmd_arg1[0]);
+    arg->cmd2 = get_cmd_argv(arg->path, arg->cmd_arg2[0]);
+    if (arg->cmd1 == NULL || arg->cmd2 == NULL)
     {
-        printf("PATH = ! %s\n", arg->path[i]);
-        i++;
+        result = 127;
+        perror("command not found");
     }
-
-    return (0);
+    return (result);
 }
 
 int main(int ac, char *av[], char *envp[])

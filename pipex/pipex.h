@@ -6,7 +6,7 @@
 /*   By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 15:29:10 by hamjongseog       #+#    #+#             */
-/*   Updated: 2022/06/18 17:06:34 by hamjongseog      ###   ########.fr       */
+/*   Updated: 2022/06/21 16:06:56 by hamjongseog      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ typedef struct s_arg
     char **path; //경로가 : 기준으로 잘라져있다 2차원배열
     char *cmd1;
     char *cmd2;
-    char *cmd_arg1;
-    char *cmd_arg2;
+    char **cmd_arg1;
+    char **cmd_arg2;
     int pipe_fds[2]; // ??
     pid_t pid;       //fork 관련?
 } t_arg;
@@ -37,5 +37,7 @@ char **ft_split(char const *s, char c);
 void *ft_calloc(size_t n, size_t size);
 size_t ft_strlcpy(char *dst, const char *src, size_t len);
 void *ft_bzero(void *str, size_t n);
+char *ft_strjoin(char const *s1, char const *s2);
+char *ft_strdup(const char *s);
 
 #endif
