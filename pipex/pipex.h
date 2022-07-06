@@ -6,7 +6,7 @@
 /*   By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 15:29:10 by hamjongseog       #+#    #+#             */
-/*   Updated: 2022/06/21 16:06:56 by hamjongseog      ###   ########.fr       */
+/*   Updated: 2022/07/06 13:22:31 by hamjongseog      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,5 @@ size_t ft_strlcpy(char *dst, const char *src, size_t len);
 void *ft_bzero(void *str, size_t n);
 char *ft_strjoin(char const *s1, char const *s2);
 char *ft_strdup(const char *s);
-
+size_t ft_strlen(const char *str);
 #endif

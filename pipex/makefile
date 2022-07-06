@@ -6,7 +6,7 @@
 #    By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/15 15:33:05 by hamjongseog       #+#    #+#              #
-#    Updated: 2022/06/21 16:00:26 by hamjongseog      ###   ########.fr        #
+#    Updated: 2022/07/06 13:23:36 by hamjongseog      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,10 @@ SRCS		=	pipex.c \
 				$(D_UTILES)ft_split.c \
 				$(D_UTILES)ft_calloc.c \
 				$(D_UTILES)ft_strlcpy.c \
-				$(D_UTILES)ft_strjoin.c
+				$(D_UTILES)ft_strjoin.c \
+				$(D_UTILES)ft_strdup.c \
+				$(D_UTILES)ft_strlen.c
+
 
 OBJS		= $(SRCS:%.c=%.o)
 

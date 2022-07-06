@@ -6,7 +6,7 @@
 /*   By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 15:09:52 by hamjongseog       #+#    #+#             */
-/*   Updated: 2022/06/21 16:05:54 by hamjongseog      ###   ########.fr       */
+/*   Updated: 2022/07/06 13:34:19 by hamjongseog      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,13 +69,17 @@ int arg_parse(t_arg *arg, char *av[], char *envp[])
         exit_perror("outfile", 1);
     arg->path = get_path_envp(envp); //path에다가 envp안의 경로를 넣어줌 cmd1 cmd2를 실행하기위해
     arg->cmd_arg1 = ft_split(av[2], ' ');
-    arg->cmd_arg2 = ft_split(av[3], ' '); //공백을 기준으로 잘라서 넣어줌
+    //arg->cmd_arg2 = ft_split(av[3], ' '); //공백을 기준으로 잘라서 넣어줌
     arg->cmd1 = get_cmd_argv(arg->path, arg->cmd_arg1[0]);
-    arg->cmd2 = get_cmd_argv(arg->path, arg->cmd_arg2[0]);
-    if (arg->cmd1 == NULL || arg->cmd2 == NULL)
+    //arg->cmd2 = get_cmd_argv(arg->path, arg->cmd_arg2[0]);
+    //if (arg->cmd1 == NULL || arg->cmd2 == NULL)
+    //{
+    //  result = 127;
+    //perror("command not found");
+    //}
+    for (int i = 0; i < 2; i++)
     {
-        result = 127;
-        perror("command not found");
+        printf("cmd1 = %s\n", arg->cmd1);
     }
     return (result);
 }
@@ -85,7 +89,7 @@ int main(int ac, char *av[], char *envp[])
     t_arg arg;
     int result;
 
-    if (ac != 1) //5개가 아니라면 예외처리
+    if (ac != 3) //5개가 아니라면 예외처리
         exit_perror("argument error", 1);
     result = arg_parse(&arg, av, envp);
     return (0);
