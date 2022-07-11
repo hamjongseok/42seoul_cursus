@@ -6,7 +6,7 @@
 /*   By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 15:09:52 by hamjongseog       #+#    #+#             */
-/*   Updated: 2022/07/06 13:34:19 by hamjongseog      ###   ########.fr       */
+/*   Updated: 2022/07/11 23:33:38 by hamjongseog      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char **get_path_envp(char *envp[]) // 환경변수에서 PATH를 찾아서 PATH=
     path = *envp + 5;
     return (ft_split(path, ':'));
 }
-
+/*
 char *get_cmd_argv(char **path, char *cmd)
 {
     int i;
@@ -55,7 +55,7 @@ char *get_cmd_argv(char **path, char *cmd)
     free(path_cmd);
     return (NULL);
 }
-
+*/
 int arg_parse(t_arg *arg, char *av[], char *envp[])
 {
     int result;
@@ -69,8 +69,8 @@ int arg_parse(t_arg *arg, char *av[], char *envp[])
         exit_perror("outfile", 1);
     arg->path = get_path_envp(envp); //path에다가 envp안의 경로를 넣어줌 cmd1 cmd2를 실행하기위해
     arg->cmd_arg1 = ft_split(av[2], ' ');
-    //arg->cmd_arg2 = ft_split(av[3], ' '); //공백을 기준으로 잘라서 넣어줌
-    arg->cmd1 = get_cmd_argv(arg->path, arg->cmd_arg1[0]);
+    arg->cmd_arg2 = ft_split(av[3], ' '); //공백을 기준으로 잘라서 넣어줌
+    //arg->cmd1 = get_cmd_argv(arg->path, arg->cmd_arg1[0]);
     //arg->cmd2 = get_cmd_argv(arg->path, arg->cmd_arg2[0]);
     //if (arg->cmd1 == NULL || arg->cmd2 == NULL)
     //{
@@ -79,7 +79,7 @@ int arg_parse(t_arg *arg, char *av[], char *envp[])
     //}
     for (int i = 0; i < 2; i++)
     {
-        printf("cmd1 = %s\n", arg->cmd1);
+        printf("cmd1 = %s\n", arg->cmd_arg1[i]);
     }
     return (result);
 }
