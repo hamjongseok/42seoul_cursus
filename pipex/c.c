@@ -1,0 +1,11 @@
+COMMAND_MODE=unix2003
+USER=hamjongseog
+a.c
+b.c
+c.c
+makefile
+pipex
+pipex.c
+pipex.h
+pipex.o
+utiles
