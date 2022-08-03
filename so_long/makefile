@@ -6,7 +6,7 @@
 #    By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/31 19:20:27 by hamjongseog       #+#    #+#              #
-#    Updated: 2022/06/08 16:03:32 by hamjongseog      ###   ########.fr        #
+#    Updated: 2022/06/10 10:52:18 by hamjongseog      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,15 +41,16 @@ MLX_NAME = mlx
 MLX_PATH = ./mlx
 
 $(NAME) : $(OBJS)
-		$(MAKE) -C $(LIB_PATH) all
 		$(MAKE) -C $(MLX_PATH)
+		$(MAKE) -C $(LIB_PATH) all
+
 		$(CC) $(CFLAGS) \
-		-L$(LIB_PATH) -l$(LIB_NAME) \
 		-L$(MLX_PATH) -l$(MLX_NAME) \
+		-L$(LIB_PATH) -l$(LIB_NAME) \
 		-framework OpenGL -framework Appkit -lz $^ -o $@
 
 $(OBJS_PATH)/%.o : $(SRCS_PATH)/%.c
-	$(CC) $(CFLAGS) -I$(INC_PATH) -I$(MLX_PATH) -I$(LIB_PATH) -c $< -o $@
+	$(CC) $(CFLAGS) -I$(INC_PATH) -I$(MLX_PATH) -c $< -o $@
 
 all : ${NAME}
 

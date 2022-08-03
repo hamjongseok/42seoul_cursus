@@ -6,7 +6,7 @@
 /*   By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 04:44:31 by hamjongseog       #+#    #+#             */
-/*   Updated: 2022/08/02 04:55:19 by hamjongseog      ###   ########.fr       */
+/*   Updated: 2022/08/03 01:58:39 by hamjongseog      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define PHILO_H
 
 #include <pthread.h>
+#include <sys/time.h>
 
 typedef struct s_arg
 {

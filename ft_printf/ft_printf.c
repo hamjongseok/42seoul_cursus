@@ -34,12 +34,12 @@ int ft_setform(const char *fmt, va_list *ap)
 	char c;
 
 	c = 0;
-	if (*fmt == '%')
+	if (*fmt == '%') 
 		return (write(1, "%", 1));
 	if (*fmt == 'c')
 	{
 		c = va_arg(*ap, int);
-		write(1, &c, 1);
+		write(1, &c, 1); 
 		return (1);
 	}
 	else if (*fmt == 's') 
@@ -60,7 +60,7 @@ int ft_setform(const char *fmt, va_list *ap)
 int ft_printf(const char *fmt, ...)
 {
 	va_list ap;
-	int result;
+	int		result;
 
 	if (fmt == NULL)
 		return (-1);

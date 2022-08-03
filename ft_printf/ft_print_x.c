@@ -12,9 +12,9 @@
 
 #include "ft_printf.h"
 
-size_t ft_pow_hex(int n)
+size_t	ft_pow_hex(int n)
 {
-    size_t ret;
+    size_t	ret;
 
     ret = 1;
     while (n--)
@@ -52,8 +52,8 @@ char *ft_restohex(size_t res)
     while (len > 0)
     {
         pow = ft_pow_hex(len - 1);
-		str[i] = hex_str[res / pow];
-        res %= pow;
+		str[i] = hex_str[res / pow]; 
+        res %= pow; 
         len--;
         i++;
     }

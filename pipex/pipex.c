@@ -38,12 +38,10 @@ char *get_cmd_argv(char **path, char *cmd)
     if (fd != -1)
         return (cmd);
     path_cmd = ft_strjoin("/", cmd);
-    printf("path_cmd= %s\n", path_cmd);
     i = 0;
     while (path[i])
     {
         tmp = ft_strjoin(path[i], path_cmd);
-        printf("%s\n", tmp);
         fd = access(tmp, X_OK);
         if (fd != -1)
         {
@@ -65,7 +63,7 @@ int arg_parse(t_arg *arg, char *av[], char *envp[])
     result = 1;
     arg->infile = open(av[1], O_RDONLY); //infile을 open으로 읽는다. fd값이 저장
     if (arg->infile == -1)               //-1은 에러이므로 에러처리
-        perror("infile");
+        exit_perror("infile");
     arg->outfile = open(av[4], O_RDWR | O_CREAT | O_TRUNC, 0644);
     if (arg->outfile == -1)
         exit_perror("outfile", 1);
@@ -81,7 +79,7 @@ int arg_parse(t_arg *arg, char *av[], char *envp[])
     }
     return (result);
 }
-//
+
 void control_fds(int closed, int std_in, int std_out)
 {
     close(closed);

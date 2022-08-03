@@ -1,0 +1,13 @@
+{
+    "files.associations": {
+        "ft_printf.h": "c",
+        "stdio.h": "c",
+        "iterator": "cpp",
+        "array": "cpp",
+        "string": "cpp",
+        "string_view": "cpp",
+        "vector": "cpp",
+        "push_swap.h": "c"
+    },
+    "C_Cpp.dimInactiveRegions": false
+}

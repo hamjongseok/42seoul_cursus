@@ -3,95 +3,95 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+        */
+/*   By: jham <jham@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 00:33:01 by hamjongseog       #+#    #+#             */
-/*   Updated: 2022/05/09 13:06:44 by hamjongseog      ###   ########.fr       */
+/*   Updated: 2022/05/18 11:35:35 by jham             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
-size_t ft_cntword(char const *s, char c) //av[i], ' '
-{
-    size_t cnt;
 
-    cnt = 0;
-    while (*s && *s == c) //av[i]가 널이 아니고, 그 값이 공백이라면 넘긴다. 문자를 찾기위함이지
-        s++;
-    while (*s) //위에서 공백을 넘겼으니 문자일때 들어온다.
-    {
-        if (*s && *s != c) //공백이 아닌 문자라면
-        {
-            cnt++;                //카운트를 세준다.
-            while (*s && *s != c) //공백이 아니라면 ++로 값을 넘김 , 공백을 만날때까지
-                s++;
-        } //"  23  7 "이렇게 23이 한번에 붙어있으면 이건 하나로 인식해야하기때문이다.
-        while (*s && *s == c)
-            s++;
-    }
-    return (cnt);
+size_t	ft_cntword(char const *s, char c)
+{
+	size_t	cnt;
+
+	cnt = 0;
+	while (*s && *s == c)
+		s++;
+	while (*s)
+	{
+		if (*s && *s != c)
+		{
+			cnt++;
+			while (*s && *s != c)
+				s++;
+		}
+		while (*s && *s == c)
+			s++;
+	}
+	return (cnt);
 }
 
-char *ft_fd_strdup(const char *s, size_t lenword) //arr[0]부터 들옴, 문자의길이
+char	*ft_fd_strdup(const char *s, size_t lenword)
 {
-    char *arr;
-    size_t idx;
+	char	*arr;
+	size_t	idx;
 
-    idx = 0;
-    arr = (char *)malloc(sizeof(char) * (lenword + 1)); //arr 문장 만듬
-    if (!arr)
-        return (0);
-    while (idx < lenword) // 문자 길이만큼 돌림
-    {
-        arr[idx] = s[idx];
-        idx++;
-    }
-    arr[idx] = 0;
-    return (arr);
+	idx = 0;
+	arr = (char *)malloc(sizeof(char) * (lenword + 1));
+	if (!arr)
+		return (0);
+	while (idx < lenword)
+	{
+		arr[idx] = s[idx];
+		idx++;
+	}
+	arr[idx] = 0;
+	return (arr);
 }
 
-size_t ft_lenword(char const *s, char c)
+size_t	ft_lenword(char const *s, char c)
 {
-    size_t lenword;
+	size_t	lenword;
 
-    lenword = 0;
-    while (*s && *s++ != c) //문자라면 세어준다.
-        lenword++;
-    return (lenword); //문자의 길이를 반환
+	lenword = 0;
+	while (*s && *s++ != c)
+		lenword++;
+	return (lenword);
 }
 
-void ft_free(char **s, int idx)
+void	ft_free(char **s, int idx)
 {
-    while (idx--)
-        free(s[idx]);
-    free(s);
+	while (idx--)
+		free(s[idx]);
+	free(s);
+	exit (0);
 }
 
-char **ft_split(char const *s, char c) //av[i], ' ' 이 들어온다
+char	**ft_split(char const *s, char c)
 {
-    char **arr;
-    size_t cntword;
-    size_t lenword;
-    size_t aidx;
+	char	**arr;
+	size_t	cntword;
+	size_t	lenword;
+	size_t	aidx;
 
-    cntword = ft_cntword(s, c);                                 //av[i]에서 잘라야할 cnt의 개수를 파악할수 있다.
-    if (!(arr = (char **)malloc(sizeof(char *) * cntword + 1))) //split에 필요한 배열을 할당해준다
-        return (0);
-    aidx = 0;
-    while (aidx < cntword) // 0부터 cnt개수 만큼 돌린다
-    {
-        while (*s && *s == c) //공백이면 넘겨준다 문자나올때까지
-            s++;
-        lenword = ft_lenword(s, c);           //문자의 길이 ex 123, 12 (값은 3, 2)
-        arr[aidx] = ft_fd_strdup(s, lenword); //"1 2 3"이면 1을 arr[i]에다가 넣어서 만듬, 복사해주는함수
-        if (!arr[aidx])                       //오류가 생기면
-        {
-            ft_free(arr, aidx - 1); //ft_free함수 사용하여 free해준다.
-            return (0);
-        }
-        aidx++;
-        s += lenword; //위에서 lenword만큼 넘겨줬기때문에 다음 문자 부터 시작을해야한다.
-    }
-    arr[cntword] = 0;
-    return (arr);
+	cntword = ft_cntword(s, c);
+	arr = (char **)malloc(sizeof(char *) * cntword + 1);
+	if (!arr)
+		return (0);
+	aidx = 0;
+	while (aidx < cntword)
+	{
+		while (*s && *s == c)
+			s++;
+		lenword = ft_lenword(s, c);
+		arr[aidx] = ft_fd_strdup(s, lenword);
+		if (!arr[aidx])
+			ft_free(arr, aidx - 1);
+		aidx++;
+		s += lenword;
+	}
+	arr[cntword] = 0;
+	return (arr);
 }

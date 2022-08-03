@@ -24,7 +24,7 @@ int ft_print_x(va_list *ap);
 int ft_print_xx(va_list *ap);
 char *ft_restohex(size_t res);
 int ft_hex_len(size_t res);
-size_t ft_pow_hex(int n);
+size_t	ft_pow_hex(int n);
 int ft_print_p(va_list *ap);
 
 #endif

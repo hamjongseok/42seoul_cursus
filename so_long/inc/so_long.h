@@ -6,7 +6,7 @@
 /*   By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 18:47:01 by hamjongseog       #+#    #+#             */
-/*   Updated: 2022/06/09 20:03:22 by hamjongseog      ###   ########.fr       */
+/*   Updated: 2022/06/10 10:51:17 by hamjongseog      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 #include "../mlx/mlx.h"
 #include "unistd.h"
-#include "../libft/libft.h"
 #include "../srcs/get_next_line.h"
 #include <fcntl.h>
 #include <stdio.h>
@@ -73,6 +72,8 @@ utils
 char *ft_strjoin_x_newline(char *s1, char *s2);
 char *ft_strdup_x_newline(char *s);
 int ft_strcpy_x_newline(char *dst, char *src, int len);
+void print_err(char *message);
+int exit_game(t_game *game);
 
 void setting_img(t_game *game);
 void move_w(t_game *g);

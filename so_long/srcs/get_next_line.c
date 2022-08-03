@@ -13,11 +13,11 @@
 #include "./get_next_line.h"
 #define BUFFER_SIZE 1
 
-static char *ft_strjoin(char *s1, char *s2)
+static char	*ft_strjoin(char *s1, char *s2)
 {
-	size_t i;
-	size_t j;
-	char *str;
+	size_t	i;
+	size_t	j;
+	char	*str;
 
 	if (!s1)
 	{
@@ -42,25 +42,25 @@ static char *ft_strjoin(char *s1, char *s2)
 	return (str);
 }
 
-int ft_find_char(char *str)
+int	ft_find_char(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i] != '\0')
 	{
 		if (str[i] == '\n')
-			break;
+			break ;
 		i++;
 	}
 	return (i);
 }
 
-static char *ft_make_backup(char **backup, int fd) //123\n67 , 3
+static char	*ft_make_backup(char **backup, int fd)
 {
-	char *line;
-	char *new_backup;
-	int i;
+	char	*line;
+	char	*new_backup;
+	int		i;
 
 	if (*backup[fd] == 0)
 	{
@@ -69,28 +69,28 @@ static char *ft_make_backup(char **backup, int fd) //123\n67 , 3
 		return (0);
 	}
 	i = ft_find_char(backup[fd]);
-	line = ft_substr(backup[fd], 0, i + 1); //123\n
+	line = ft_substr(backup[fd], 0, i + 1);
 	if (line == 0)
 		return (0);
-	new_backup = ft_substr(backup[fd], i + 1, ft_strlen(backup[fd]) - (i + 1)); //67
+	new_backup = ft_substr(backup[fd], i + 1, ft_strlen(backup[fd]) - (i + 1));
 	if (new_backup == 0)
 	{
 		free(line);
 		return (0);
 	}
 	free(backup[fd]);
-	backup[fd] = new_backup; //67
-	return (line);			 //123\n
+	backup[fd] = new_backup;
+	return (line);
 }
 
-int ft_get_backup(char **backup, int fd, char *buf) //67
+int	ft_get_backup(char **backup, int fd, char *buf)
 {
-	int len;
+	int	len;
 
 	len = 1;
 	while (len != 0 && !ft_strchr(backup[fd], '\n'))
 	{
-		len = read(fd, buf, BUFFER_SIZE); //3, buf, 2   //35\n
+		len = read(fd, buf, BUFFER_SIZE);
 		if (len == -1)
 		{
 			free(buf);
@@ -98,15 +98,15 @@ int ft_get_backup(char **backup, int fd, char *buf) //67
 			return (0);
 		}
 		buf[len] = '\0';
-		backup[fd] = ft_strjoin(backup[fd], buf); //6735\n
+		backup[fd] = ft_strjoin(backup[fd], buf);
 	}
 	return (1);
 }
 
-char *get_next_line(int fd)
+char	*get_next_line(int fd)
 {
-	static char *backup[OPEN_MAX]; //이전의 문자를 저장해야합니다.
-	char *buf;					   //버퍼 리드함수
+	static char	*backup[OPEN_MAX];
+	char		*buf;
 
 	if (fd < 0 || BUFFER_SIZE < 1)
 		return (0);
