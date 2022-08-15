@@ -6,7 +6,7 @@
 /*   By: hamjongseog <hamjongseog@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 04:58:30 by hamjongseog       #+#    #+#             */
-/*   Updated: 2022/08/03 01:53:03 by hamjongseog      ###   ########.fr       */
+/*   Updated: 2022/08/15 01:49:08 by hamjongseog      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,4 +75,3 @@ int ft_atoi(char *str)
   }
   return (result * np);
 }
-Footer
